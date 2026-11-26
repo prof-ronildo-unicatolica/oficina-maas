@@ -1,0 +1,14 @@
+# Configuração do Ruff (linter + formatador de Python).
+# Rode com: make lint  (verifica)  |  make format  (corrige e formata)
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+src = ["src"]
+
+[tool.ruff.lint]
+# E/W: estilo (pycodestyle) | F: erros reais (pyflakes) | I: ordem dos imports
+# B: armadilhas comuns (bugbear) | UP: sintaxe moderna | SIM: simplificações
+select = ["E", "W", "F", "I", "B", "UP", "SIM"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["src"]

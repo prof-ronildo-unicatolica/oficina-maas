@@ -1,0 +1,16 @@
+# Ambiente local
+.env
+.venv/
+__pycache__/
+.ruff_cache/
+
+# Gerado pela oficina (mantém só o dataset e as pastas vazias)
+data/*
+!data/credit_g.csv
+!data/LEIA-ME.txt
+models/*
+logs/*
+reports/*
+!models/.gitkeep
+!logs/.gitkeep
+!reports/.gitkeep

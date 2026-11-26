@@ -1,0 +1,29 @@
+services:
+  api:
+    build: .
+    image: oficina-maas
+    ports:
+      - "${API_PORT:-8888}:8888"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./logs:/app/logs
+      - ./reports:/app/reports
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8888/health')"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  # Container de tarefas: treino, simulação, monitoramento e retreino.
+  # Uso: docker compose run --rm jobs python -m src.<etapa>
+  jobs:
+    image: oficina-maas
+    profiles: ["jobs"]
+    environment:
+      - API_URL=http://api:8888
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./logs:/app/logs
+      - ./reports:/app/reports

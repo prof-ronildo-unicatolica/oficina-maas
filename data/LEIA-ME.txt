@@ -1,0 +1,4 @@
+credit_g.csv: German Credit Data (Statlog), Prof. Hans Hofmann, Universidade de Hamburgo, 1994.
+Fonte: UCI Machine Learning Repository, licença CC BY 4.0
+https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data  (OpenML: credit-g, id 31)
+Incluído aqui para a oficina funcionar sem internet. A coluna "class" foi convertida em "inadimplente" (1 = bad).
